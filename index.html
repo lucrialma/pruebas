@@ -3,85 +3,97 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Registro</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
-<style>
-#content{
-	margin:0 10%;
-	}
-#content>div{
-	padding:5px 0;
-	margin:0 auto;
-	}
-
-</style>
 
 <body>
 <div id="content">
 <h1>Registro</h1>
-<form method="post" action="" name="frmContacto" id="frmContacto" onsubmit="guardarInfo()">
-<table width="200" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><label>Nombre</label>
-        <div style=""><input type="text" id="nombre" name="nombre" value="" /></div></td>
-    <td><label>Login</label>
-        <div style=""><input type="text" id="login" name="login" value="" /></div></td>
-  </tr>
-  <tr>
-    <td><label>Contraseña</label>
-        <div style=""><input type="password" id="login" name="login" value="" /></div></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td><label>Sexo</label>
-        <input type="radio" name="sexo" value="f"> Femenino<br>
-		<input type="radio" name="sexo" value="m"> Masculino<br></td>
-    <td><label>Gustos</label>
-        <input type="checkbox" name="gustos" value="Deporte"> Deporte<br>
-		<input type="checkbox" name="gustos" value="Musica"> Musica<br>
-		<input type="checkbox" name="gustos" value="Musica"> Cine<br></td>
-  </tr>
-  <tr>
-    <td colspan="2">
-    <label>Opinion</label>
-        <div style=""><textarea name="opinion" cols="30" rows="10"></textarea> </div>
-    </td>
-  </tr>
-  <tr>
-    <td><label>Ciudad</label>
-        <div style=""><select name="ciudad">
+<div class="contentGeneral">
+    <div class="colRight">
+        <div>
+            <label>Nombre</label><br />
+            <input class="text" type="text" id="nombre" name="nombre" value="" />          
+        </div>
+        <div>
+            <label>Login</label>
+            <input class="text" type="text" id="login" name="login" value="" />
+        </div>
+    </div>
+    <div class="colRight">
+        <div>
+           	<label>Sexo:</label><br/>
+            <input type="radio" name="sexo" value="f"> Femenino<br>
+            <input type="radio" name="sexo" value="m"> Masculino<br>     
+        </div>
+        <div>
+            <label>Gustos</label><br/>
+  			<input type="checkbox" name="gustos" value="Deporte"> Deporte<br>
+            <input type="checkbox" name="gustos" value="Musica"> Musica<br>
+            <input type="checkbox" name="gustos" value="Musica"> Cine<br>
+        </div>
+    </div>
+    <div class="colRight">
+        <div>
+            <label>Nombre</label><br />
+       	<input class="text" name="nombre" type="text" id="nombre" value="" />       
+        </div>
+        <div>
+            <label>Contraseña</label><br />
+        	<input class="text" name="login" type="password" id="login" value="" />
+        </div>
+    </div>
+    <div class="colRight">
+        <div style="width: 100%">
+           <label>Opinion</label><br/>  
+           <textarea name="opinion" cols="40" rows="5"></textarea>    
+        </div>
+    </div>
+    <div class="colRight">
+        <div>
+            <label>Ciudad</label>
+      <select name="ciudad">
                        <option default value="Manizales">Manizales</option>
                        <option value="Pereira">Pereira</option>
                        <option value="Riosucio">Riosucio</option>
-        		</select> </div></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td colspan="2"><input id="enviar" type="submit" name="enviar" value="enviar"/></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-
-   </form> 
+        		</select>
+        </div>
+    </div>
+    <div class="colRight">
+        <div>
+         <input id="enviar" type="submit" name="enviar" value="enviar" onclick="validar()"/>
+        </div>
+    </div>
+</div>
+<div id="contentTable">
+<br/><br/><br/><br/>
+ <a href="#">Prueba link</a>
+   </div>
 </div>
 </body>
 </html>
 <script type="application/javascript">
 
-
-function guardarInfo(){
-	 	
+function validar()
+{
 		var nombre = document.getElementById("nombre").value;
 		var login = document.getElementById("login").value;
-		var sexo = document.getElementById("sexo").value;
-		var gustos = document.getElementById("gustos").value;
-		var opinion = document.getElementById("opinion").text;	
-		var ciudad = document.getElementById("ciudad").value;		
+		/*var ciudad = document.getElementById("ciudad").value;	*/
 		
-		alert("Informacion guardada!");
-		return false;
-	}
+		if(nombre==""){
+				alert("El nombre no puede ser vacio ");
+				document.getElementById("nombre").focus();
+			}
+		if(login ==""){
+				alert("El login no puede ser vacio ");
+				document.getElementById("login").focus();
+			}
+		/*if(ciudad=="") {
+				alert("La ciudad no puede ser vacia ");
+				ciudad.focus();
+		 
+		}*/
+}
+
 
 </script>

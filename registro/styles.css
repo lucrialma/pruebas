@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+background-image:url(img/fondo2.jpg);
+background-repeat:repeat-x;
+background-color:#69848D;
+font-family:Verdana, Geneva, sans-serif;
+}
+h1{
+ padding: 4px 20px;
+}
+a:link{
+	color:#006;
+	text-decoration:none;
+	font-weight:bold;
+	}
+a:hover{
+	color:#006600;
+	}
+a:visited{
+	color:#666666;
+}
+#content{
+	font-size:11px;
+	padding: 0 7%;
+	border: 1px solid #CCC;
+	}
+#contentTable{
+margin:0 auto;
+}
+
+#frmContacto input{
+	width: 50%;
+}
+.contentGeneral{
+	width:100%;
+	float:left;
+}
+.text{
+	width: 100%;
+}
+
+.text:focus, textarea:focus{
+	background-color:#FFFF99;
+}
+
+
+.colRight{
+	float:left;
+	width:100%;
+	margin-bottom: 10px;
+	}
+.colRight div{
+	float:left;
+	margin-right: 5%;
+	width: 45%;
+}
+
+table{
+	/*border: thin #333;
+	border-collapse:collapse;*/
+}
+
+textarea{
+	width: 85%;
+}
