@@ -137,15 +137,9 @@
         //
         function capturePhoto() {
           // Toma la imagen y la retorna como una string codificada en base64
-          navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
+          navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: navigator.camera.destinationType.DATA_URL });
         }
-
-        // Un botÃ³n llamara a esta funciÃ³n
-        //
-        function capturePhotoEdit() {
-          // Toma la imagen, permite editarla y la retorna como una string codificada en base64
-          navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true }); 
-        }
+   }
     
         // Un botÃ³n llamara a esta funciÃ³n
         //
