@@ -73,11 +73,7 @@
 </div>
 <br/><br/>
 <button onclick="capturePhoto();">Capturar foto</button> <br>
-        <button onclick="capturePhotoEdit();">Capturar foto editable</button> <br>
-        <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Desde la libreria de imagenes</button><br>
-        <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Desde el allbum de fotos</button><br>
-        <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-        <img style="display:none;" id="largeImage" src="" />
+        <img style="display:none;" id="foto" src="" />
 </body>
 </html>
 <script type="text/javascript" charset="utf-8">
@@ -92,7 +88,7 @@
 
 		function mostrarFoto(imageData) {
            	var elementoImagen =
-			document.getElementById(‘foto');
+			document.getElementById('foto');
            	elementoImagen.style.display = 'block';     
       		smallImage.src = "data:image/jpeg;base64," +
 			imageData;
