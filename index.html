@@ -1,85 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Registro</title>
-<link rel="stylesheet" type="text/css" href="styles.css" />
-<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-</head>
+ <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Ejemplo de Camera</title>
 
-<body>
-<div id="content">
-<h1>Registro</h1>
-<div class="contentGeneral">
-    <div class="colRight">
-        <div>
-            <label>Nombre</label><br />
-            <input class="text" type="text" id="nombre" name="nombre" value="" />          
-        </div>
-        <div>
-            <label>Login</label>
-            <input class="text" type="text" id="login" name="login" value="" />
-        </div>
-    </div>
-    <div class="colRight">
-        <div>
-           	<label>Sexo:</label><br/>
-            <input type="radio" name="sexo" value="f"> Femenino<br>
-            <input type="radio" name="sexo" value="m"> Masculino<br>     
-        </div>
-        <div>
-            <label>Gustos</label><br/>
-  			<input type="checkbox" name="gustos" value="Deporte"> Deporte<br>
-            <input type="checkbox" name="gustos" value="Musica"> Musica<br>
-            <input type="checkbox" name="gustos" value="Musica"> Cine<br>
-        </div>
-    </div>
-    <div class="colRight">
-        <div>
-            <label>Nombre</label><br />
-       	<input class="text" name="nombre" type="text" id="nombre" value="" />       
-        </div>
-        <div>
-            <label>Contraseña</label><br />
-        	<input class="text" name="login" type="password" id="login" value="" />
-        </div>
-    </div>
-    <div class="colRight">
-        <div style="width: 100%">
-           <label>Opinion</label><br/>  
-           <textarea name="opinion" cols="40" rows="5"></textarea>    
-        </div>
-    </div>
-    <div class="colRight">
-        <div>
-            <label>Ciudad</label>
-      <select name="ciudad">
-                       <option default value="Manizales">Manizales</option>
-                       <option value="Pereira">Pereira</option>
-                       <option value="Riosucio">Riosucio</option>
-        		</select>
-        </div>
-    </div>
-    <div class="colRight">
-        <div>
-         <input id="enviar" type="submit" name="enviar" value="enviar" onclick="validar()"/>
-        </div>
-    </div>
-</div>
-<div id="contentTable">
-<br/><br/><br/><br/>
- <a href="#">Prueba link</a>
-   </div>
-</div>
-<br/><br/>
-<button onclick="capturePhoto();">Capturar foto</button> <br>
-        <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Desde la libreria de imigenes</button><br>
-        <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Desde elilbum de fotos</button><br>
-        <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-        <img style="display:none;" id="largeImage" src="" />
-</body>
-</html>
-<script type="text/javascript" charset="utf-8">
+        <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+        <script type="text/javascript" charset="utf-8">
 
         var pictureSource;   // Origen de la imagen
         var destinationType; // Formato del valor retornado
@@ -106,8 +31,9 @@
           var smallImage = document.getElementById('smallImage');
       
           // Revela el elemento de la imagen
-          
+          //
           smallImage.style.display = 'block';
+      
           // Muestra la foto capturada
           // Se usan reglas CSS para dimensionar la imagen
           //
@@ -138,9 +64,15 @@
         //
         function capturePhoto() {
           // Toma la imagen y la retorna como una string codificada en base64
-         navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
+          navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
         }
-   }
+
+        // Un botÃ³n llamara a esta funciÃ³n
+        //
+        function capturePhotoEdit() {
+          // Toma la imagen, permite editarla y la retorna como una string codificada en base64
+          navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true }); 
+        }
     
         // Un botÃ³n llamara a esta funciÃ³n
         //
@@ -158,3 +90,13 @@
         }
 
         </script>
+      </head>
+      <body>
+        <button onclick="capturePhoto();">Capturar foto</button> <br>
+        <button onclick="capturePhotoEdit();">Capturar foto editable</button> <br>
+        <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Desde la librerÃ­a de imÃ¡genes</button><br>
+        <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Desde el Ã¡lbum de fotos</button><br>
+        <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+        <img style="display:none;" id="largeImage" src="" />
+      </body>
+    </html>
